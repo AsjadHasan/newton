@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,8 @@ class HomeController extends Controller
         // $users = User::all(); //All the records that store in users table
 
         // $users =User::orderBy('id','desc')->get();
-        $users = User::orderBy('name','asc')->get();//asc or desc order a dekhte caile ei query chalate hobe
+        $logged_in_user = Auth::id();
+        $users = User::where('id','!=',$logged_in_user)->orderBy('name','asc')->get();//asc or desc order a dekhte caile ei query chalate hobe
         // $total_users = User::count();
         return view('home', compact('users'));
     }
