@@ -18,3 +18,5 @@ Route::get('/contact', 'FrontendController@contact');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/add/faq', 'HomeController@addfaq');
+Route::post('/add/faq/post', 'HomeController@addfaqpost');
