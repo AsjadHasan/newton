@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use App\Faq;
+use App\Http\Requests\FaqFormPost;
 class HomeController extends Controller
 {
     /**
@@ -48,13 +49,41 @@ class HomeController extends Controller
   }
 //addfaq function end
 
-public function addfaqpost(Request $request){
+public function addfaqpost(FaqFormPost $request){
   Faq::insert([
     'faq_qsn' => $request->faq_qsn,
     'faq_ans' => $request->faq_ans,
   ]);
-  return back();
+  return back()->withStatus('Hoia geche');
 }
 //addfaqpost function end
+
+public function faqdelete($faq_id)
+{
+  Faq::find($faq_id)->delete();
+  return back()->with('Deletestatus','Delete Hoia Geche');
+}
+//faqdelete end
+
+public function faqedit($faq_id)
+{
+  $faq = Faq::find($faq_id);
+  return view('admin.editfaq',compact('faq'));
+}
+
+public function editfaqpost(Request $request)
+{
+  Faq::find($request->faq_id)->update([
+    'faq_qsn' => $request->faq_qsn,
+    'faq_ans' => $request->faq_ans,
+  ]);
+  return redirect('add/faq');
+}
+
+
+
+
+
+
 
 }

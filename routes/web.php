@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/add/faq', 'HomeController@addfaq');
 Route::post('/add/faq/post', 'HomeController@addfaqpost');
+Route::get('/faq/delete/{faq_id}','HomeController@faqdelete');
+Route::get('/faq/edit/{faq_id}','HomeController@faqedit');
+Route::post('/faq/edit/post', 'HomeController@editfaqpost');
