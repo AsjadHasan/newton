@@ -7,6 +7,8 @@ use App\User;
 use Auth;
 use App\Faq;
 use App\Http\Requests\FaqFormPost;
+use Carbon\Carbon;
+
 class HomeController extends Controller
 {
     /**
@@ -44,26 +46,28 @@ class HomeController extends Controller
 //index function end
 
   public function addfaq(){
+    $soft_delete_faqs = Faq::onlyTrashed()->get();//for soft delete
     $faqs = Faq::all();
-    return view('admin.addfaq', compact('faqs'));
+    return view('admin.addfaq', compact('soft_delete_faqs', 'faqs'));
   }
-//addfaq function end
+//add faq read function end
 
 public function addfaqpost(FaqFormPost $request){
   Faq::insert([
     'faq_qsn' => $request->faq_qsn,
     'faq_ans' => $request->faq_ans,
+    'created_at' => Carbon::now(),
   ]);
-  return back()->withStatus('Hoia geche');
+  return back()->withStatus('New Record Added');
 }
-//addfaqpost function end
+//add faqpost create function end
 
-public function faqdelete($faq_id)
+public function faqsoftDelete($faq_id)
 {
   Faq::find($faq_id)->delete();
-  return back()->with('Deletestatus','Delete Hoia Geche');
+  return back()->with('Deletestatus','Record Deleted');
 }
-//faqdelete end
+//faq soft delete end
 
 public function faqedit($faq_id)
 {
@@ -79,11 +83,24 @@ public function editfaqpost(Request $request)
   ]);
   return redirect('add/faq');
 }
+//faq edit end
 
 
+public function faqundo($faq_id)
+{
 
+  Faq::withTrashed()->where('id',$faq_id)->restore();
+  return back()->with('Deletestatus','Successfully Restored');
+}
+//faq soft delete undo end
 
+public function faqhardDelete($faq_id)
+{
 
+  Faq::withTrashed()->where('id',$faq_id)->forceDelete();
+  return back()->with('Deletestatus','Permanently Deleted');
+}
+// faq hard delete
 
 
 }

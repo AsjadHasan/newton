@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Faq extends Model
-{
-    protected $fillable = ['faq_qsn','faq_ans']; 
+class Faq extends Model{
+    use SoftDeletes;
+    protected $fillable = ['faq_qsn','faq_ans'];
 }
