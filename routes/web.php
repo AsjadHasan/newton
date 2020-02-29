@@ -17,14 +17,14 @@ Route::get('/contact', 'FrontendController@contact');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
-Route::get('/add/faq', 'HomeController@addfaq')->middleware('verified');
-Route::post('/add/faq/post', 'HomeController@addfaqpost')->middleware('verified');
-Route::get('/faq/softDelete/{faq_id}','HomeController@faqsoftDelete')->middleware('verified');
-Route::get('/faq/edit/{faq_id}','HomeController@faqedit')->middleware('verified');
-Route::post('/faq/edit/post', 'HomeController@editfaqpost')->middleware('verified');
-Route::get('/faq/undo/{faq_id}','HomeController@faqundo')->middleware('verified');
-Route::get('/faq/hardDelete/{faq_id}','HomeController@faqhardDelete')->middleware('verified');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/add/faq', 'HomeController@addfaq');
+Route::post('/add/faq/post', 'HomeController@addfaqpost');
+Route::get('/faq/softDelete/{faq_id}','HomeController@faqsoftDelete');
+Route::get('/faq/edit/{faq_id}','HomeController@faqedit');
+Route::post('/faq/edit/post', 'HomeController@editfaqpost');
+Route::get('/faq/undo/{faq_id}','HomeController@faqundo');
+Route::get('/faq/hardDelete/{faq_id}','HomeController@faqhardDelete');
 
-Route::get('/edit/profile/ChangePass','HomeController@editprofile')->middleware('verified');
-Route::post('/change/pass','HomeController@changepass')->middleware('verified');
+Route::get('/edit/profile/ChangePass','HomeController@editprofile');
+Route::post('/change/pass','HomeController@changepass');

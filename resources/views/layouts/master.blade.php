@@ -28,7 +28,9 @@
     <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
     <meta name="author" content="ThemePixels">
 
-    <title>Starlight Responsive Bootstrap 4 Admin Template</title>
+    <title>
+      @yield('title')
+    </title>
 
     <!-- vendor css -->
     <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
@@ -55,13 +57,13 @@
 
       <label class="sidebar-label">Navigation</label>
       <div class="sl-sideleft-menu">
-        <a href="{{ url('home') }}" class="sl-menu-link">
+        <a href="{{ url('home') }}" class="sl-menu-link @yield('Home_menu_active')">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
-            <span class="menu-item-label">Dashboard</span>
+            <span class="menu-item-label">Home</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <a href="{{ url('/add/faq') }}" class="sl-menu-link">
+        <a href="{{ url('/add/faq') }}" class="sl-menu-link @yield('addfaq_menu_active')">
           <div class="sl-menu-item">
             <i class="menu-item-icon fas fa-question-circle tx-20"></i>
             <span class="menu-item-label">FAQ</span>
@@ -303,7 +305,7 @@
 
     <!-- ########## START: MAIN PANEL ########## -->
     <div class="sl-mainpanel">
-      
+
       @yield('breadcrumb')
 
       <div class="sl-pagebody">

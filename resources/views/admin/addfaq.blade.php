@@ -1,5 +1,13 @@
 @extends('layouts.master')
 
+@section('title')
+Add FAQ
+@endsection
+
+@section('addfaq_menu_active')
+active
+@endsection
+
 @section('breadcrumb')
   <nav class="breadcrumb sl-breadcrumb">
     <a class="breadcrumb-item" href="{{ url('home') }}">Home Page</a>

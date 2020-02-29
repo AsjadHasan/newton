@@ -1,5 +1,13 @@
 @extends('layouts.master')
 
+@section('title')
+Home
+@endsection
+
+@section('Home_menu_active')
+active
+@endsection
+
 @section('breadcrumb')
   <nav class="breadcrumb sl-breadcrumb">
     <span class="breadcrumb-item active">Home Page</span>
