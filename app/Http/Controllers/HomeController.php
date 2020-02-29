@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use Hash;
 use App\Faq;
 use App\Http\Requests\FaqFormPost;
+use App\Mail\PasswordChangeConfirmationMail;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ChangePasswordFormPost;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -101,6 +105,42 @@ public function faqhardDelete($faq_id)
   return back()->with('Deletestatus','Permanently Deleted');
 }
 // faq hard delete
+
+// change password start
+
+public function editprofile()
+{
+  return view('admin.ChangePass');
+}
+
+public function changepass(ChangePasswordFormPost $request)
+
+{
+  if ($request->old_password == $request->password) {
+    return back()->withErrors('Your New Password Can not be your Old Password');
+  }
+  else {
+    $old_password = $request->old_password;
+    $db_password = Auth::user()->password;
+    if (Hash::check($old_password,$db_password)) {
+      User::find(Auth::id())->update([
+        'password' => Hash::make($request->password),
+      ]);
+      // PasswordChangeConfirmationMail start
+       Mail::to(Auth::user()->email)->send(new PasswordChangeConfirmationMail());
+       // PasswordChangeConfirmationMail end
+      return back()->with('password_changed_success','Your Password Changed');
+    }
+    else {
+      return back()->with('password_changed_not_success','Your Old Password does not match');
+    }
+  }
+}
+
+// change password end
+
+
+
 
 
 }

@@ -1,4 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.master')
+
+@section('breadcrumb')
+  <nav class="breadcrumb sl-breadcrumb">
+    <span class="breadcrumb-item active">Home Page</span>
+  </nav>
+@endsection
 
 @section('content')
 <div class="container">

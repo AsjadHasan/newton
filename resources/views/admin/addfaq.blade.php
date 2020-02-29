@@ -1,4 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.master')
+
+@section('breadcrumb')
+  <nav class="breadcrumb sl-breadcrumb">
+    <a class="breadcrumb-item" href="{{ url('home') }}">Home Page</a>
+    <span class="breadcrumb-item active">Add FAQ Page</span>
+  </nav>
+@endsection
+
 
 @section('content')
   <div class="container">

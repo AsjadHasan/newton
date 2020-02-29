@@ -25,3 +25,6 @@ Route::get('/faq/edit/{faq_id}','HomeController@faqedit')->middleware('verified'
 Route::post('/faq/edit/post', 'HomeController@editfaqpost')->middleware('verified');
 Route::get('/faq/undo/{faq_id}','HomeController@faqundo')->middleware('verified');
 Route::get('/faq/hardDelete/{faq_id}','HomeController@faqhardDelete')->middleware('verified');
+
+Route::get('/edit/profile/ChangePass','HomeController@editprofile')->middleware('verified');
+Route::post('/change/pass','HomeController@changepass')->middleware('verified');

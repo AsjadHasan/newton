@@ -1,18 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.master')
+
+@section('breadcrumb')
+  <nav class="breadcrumb sl-breadcrumb">
+    <a class="breadcrumb-item" href="{{ url('home') }}">Home Page</a>
+    <a class="breadcrumb-item" href="{{ url('add/faq') }}">Add FAQ Page</a>
+    <span class="breadcrumb-item active">Edit FAQ Page</span>
+  </nav>
+@endsection
 
 @section('content')
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 m-auto">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{{ url('add/faq') }}">Add FAQ</a></li>
-              <li class="breadcrumb-item active" aria-current="page">{{ $faq->faq_qsn }}</li>
-            </ol>
-        </nav>
-      </div>
-    </div>
-  </div>
+
   <div class="container">
     <div class="row">
       <div class="col-lg-6 m-auto">
