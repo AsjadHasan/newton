@@ -58,11 +58,9 @@ class HomeController extends Controller
 //add faq read function end
 
 public function addfaqpost(FaqFormPost $request){
-  Faq::insert([
-    'faq_qsn' => $request->faq_qsn,
-    'faq_ans' => $request->faq_ans,
-    'created_at' => Carbon::now(),
-  ]);
+  // print_r($request->except('_token'));
+  Faq::insert($request->except('_token') + ['created_at' => Carbon::now() ]);
+
   return back()->withStatus('New Record Added');
 }
 //add faqpost create function end

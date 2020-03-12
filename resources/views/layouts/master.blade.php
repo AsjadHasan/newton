@@ -71,10 +71,10 @@
         </a><!-- sl-menu-link -->
 
 
-        <a href="mailbox.html" class="sl-menu-link">
+        <a href="{{ route('category.index') }}" class="sl-menu-link @yield('addcategory_menu_active')">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
-            <span class="menu-item-label">Mailbox</span>
+            <span class="menu-item-label">Add Category</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <a href="#" class="sl-menu-link">

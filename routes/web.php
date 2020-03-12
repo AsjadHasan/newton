@@ -28,3 +28,7 @@ Route::get('/faq/hardDelete/{faq_id}','HomeController@faqhardDelete');
 
 Route::get('/edit/profile/ChangePass','HomeController@editprofile');
 Route::post('/change/pass','HomeController@changepass');
+
+
+// resource Controller start from here
+Route::resource('category','CategoryController');

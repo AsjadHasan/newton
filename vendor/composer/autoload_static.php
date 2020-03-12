@@ -415,6 +415,7 @@ class ComposerStaticInit536e6aee8c0507eda8cbd80c3e81cd52
     );
 
     public static $classMap = array (
+        'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Faq' => __DIR__ . '/../..' . '/app/Faq.php',
@@ -435,6 +436,9 @@ class ComposerStaticInit536e6aee8c0507eda8cbd80c3e81cd52
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\ChangePasswordFormPost' => __DIR__ . '/../..' . '/app/Http/Requests/ChangePasswordFormPost.php',
+        'App\\Http\\Requests\\FaqFormPost' => __DIR__ . '/../..' . '/app/Http/Requests/FaqFormPost.php',
+        'App\\Mail\\PasswordChangeConfirmationMail' => __DIR__ . '/../..' . '/app/Mail/PasswordChangeConfirmationMail.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
